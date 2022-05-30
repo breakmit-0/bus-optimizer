@@ -1,0 +1,42 @@
+Geo Point;                              - 00 -
+Geo Shape;                              - 01 - aretes 
+id_sous_troncon;                        - 02 -
+etat;                                   - 03 - si "existant"
+nature;                                 - 04 - "route" ou "autoroute"
+niveau;                                 - 05 - identique pour avoir une intersection
+source_geometrique;                     - 06 - 
+id_troncon;                             - 07 -
+nom_commune_droit;                      - 08 - 
+nom_commune_gauche;                     - 09 -
+nom_voie_droit;                         - 10 -
+nom_voie_gauche;                        - 11 -
+nom_route_administrative_droit;         - 12 -
+nom_route_administrative_gauche;        - 13 -
+nom_quartier_droit;                     - 14 -
+nom_quartier_gauche;                    - 15 -
+voiture_vitesse;                        - 16 - longueur d'arete
+voiture_nb_voie;                        - 17 - 
+voiture_sens;                           - 18 - sens uniques
+voiture_type;                           - 19 - si "libre" (ou reserve au bus)
+bus_type_droit;                         - 20 - si "reserve" ou "total" (sens direct)
+bus_type_gauche;                        - 21 - si "reserve" ou "total" (sens indirect)
+cycle_type_droit;                       - 22 -
+cycle_sens_droit;                       - 23 -
+cycle_largeur_droit;                    - 24 -
+cycle_annee_droit;                      - 25 -
+cycle_type_gauche;                      - 26 -
+cycle_sens_gauche;                      - 27 -
+cycle_largeur_gauche;                   - 28 -
+cycle_annee_gauche;                     - 29 -
+pieton_type_droit;                      - 30 -
+pieton_largeur_droit;                   - 31 -
+pieton_type_gauche;                     - 32 -
+pieton_largeur_gauche;                  - 33 -
+voie_cyclable_categorie;                - 34 -
+voie_cyclable_type_liaison;             - 35 -
+voie_cyclable_largeur;                  - 36 -
+voie_cyclable_sens_circulation;         - 37 -
+voie_cyclable_annee_creation;           - 38 -
+voie_cyclable_chaussee_proximite;       - 39 -
+voie_cyclable_chaussee_id_sous_troncon; - 40 -
+type_zonage                             - 41 - si present, uniquement "Zone 30"
