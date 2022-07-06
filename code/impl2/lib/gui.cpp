@@ -1,6 +1,7 @@
 #include "./gui.h"
 
 #include <math.h>
+#include <stdio.h>
 #include <limits.h>
 
 struct vec2 {
@@ -57,8 +58,12 @@ void disp::gui_lignes(
         maxy = MAX(data.mapy, maxy);
     }
 
+    printf("%lf, %lf, %lf, %lf\n", minx, maxx, miny, maxy);
+
     double scale = MIN(X_SIZE/(maxx-minx), Y_SIZE/(maxy-miny));
     vec2 vzero = (vec2){minx, miny};
+
+    printf("%lf\n", scale);
 
     ///////////////////////////
 
@@ -73,13 +78,7 @@ void disp::gui_lignes(
     //     );
     // }
 
-    for (size_t i=0; i<n_pt; i++)
-    {
-        vec2 ipos = transpose(vzero, scale, {g->get_meta(pts[i]).mapx, g->get_meta(pts[i]).mapy});
-        al_draw_filled_circle(
-            ipos.x, ipos.y, 3.0, al_map_rgb(255, 128, 0)
-        );
-    }
+
 
     for (size_t i=0; i<g->sommets(); i++)
     {
@@ -90,11 +89,20 @@ void disp::gui_lignes(
             sommet sj = g->get_meta(g->aretes(i)[j].dest);
             vec2 jpos = transpose(vzero, scale, {sj.mapx, sj.mapy});
 
+            //printf("(%lf,%lf)\n", jpos.x, jpos.y);
+
             al_draw_line(
                 ipos.x, ipos.y, jpos.x, jpos.y,
-                al_map_rgb(90, 90, 90), 1.0
+                al_map_rgb(90, 90, 90), 8.0
             );
         }
+    }
+    for (size_t i=0; i<n_pt; i++)
+    {
+        vec2 ipos = transpose(vzero, scale, {g->get_meta(pts[i]).mapx, g->get_meta(pts[i]).mapy});
+        al_draw_filled_circle(
+            ipos.x, ipos.y, 30.0, al_map_rgb(255, 128, 0)
+        );
     }
 
     const ALLEGRO_COLOR colors[6] = {
@@ -120,7 +128,7 @@ void disp::gui_lignes(
             vec2 posj = transpose(vzero, scale, {sj.mapx, sj.mapy});
             al_draw_line(
                 posi.x, posi.y, posj.x, posj.y,
-                colors[ligne % 6], 2.0
+                colors[ligne % 6], 10.0
             );
         }
     }

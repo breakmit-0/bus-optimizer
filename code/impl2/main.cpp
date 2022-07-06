@@ -16,9 +16,17 @@ int main()
 {
     srand((unsigned)time(0));
 
-    size_t nodes = input::read_graph("rues-graphe.gph");
-    graphe* g = graphe::new_graphe(nodes, input::extern_constr);
-    input::destroy();
+    //size_t nodes = input::read_graph("rues-graphe.gph");
+    //graphe* g = graphe::new_graphe(nodes, input::extern_constr);
+
+    size_t nodes = 30*30;
+    constr_carre_size = 30;
+    graphe* g = graphe::new_graphe(nodes, constr_carre);
+
+    //printf("%lf\n", g->get_meta(1).mapx);
+
+
+    //input::destroy();
     
     printf("g a %llu sommets.\n", g->sommets());
 
@@ -29,13 +37,16 @@ int main()
         points[i] = rand() % nodes;
     }
 
+
     chemin ch1 = chemin::new_chemin(0, NULL);
     chemin ch2 = chemin::new_chemin(0, NULL);
-
     chemin lignes[2] = {ch1, ch2};
 
     assert(ch1.check());
     assert(ch2.check());
+
+    disp::gui_lignes(g, NULL, 0, points, 10);
+    exit(1);
 
     uint64_t cout1 = opti::cout(g, lignes, 2, points, 10);
     uint64_t cout2;
@@ -45,7 +56,7 @@ int main()
 
     //algo glouton pour l'instant
 
-    while(n < 20000 && stable < 2000)
+    while(n < 2000 && stable < 500)
     {
         assert(lignes[0].check());
         assert(lignes[1].check());

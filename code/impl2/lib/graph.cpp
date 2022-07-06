@@ -58,8 +58,8 @@ adj_data constr_carre(size_t i)
 
     adj_data res = {0, (sommet) {
         .val = i,
-        .mapx = 10.0 * (i % constr_carre_size),
-        .mapy = 10.0 * (i / constr_carre_size)
+        .mapx = 1.0 * (i % SIZE),
+        .mapy = 1.0 * (i / SIZE)
     }, NULL};
 
     if (i == 0)
